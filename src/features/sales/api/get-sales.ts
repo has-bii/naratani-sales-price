@@ -42,12 +42,12 @@ export async function getSales(): Promise<{ data: SalesRecord[]; date: number }>
     .slice(1)
     .filter((row) => row[date]) // Remove empty rows
     .map((row) => ({
-      date: new Date(row[date]),
+      date: row[date] as string,
       productName: (row[productName!] || 'N/A') as string,
       shopName: (row[shopName!] || 'N/A') as string,
       sellingPrice: (row[sellingPrice!] || 'N/A') as string,
     }))
-    .sort((a, b) => b.date.getTime() - a.date.getTime())
+    .reverse()
 
   const fetchedDate = Date.now()
 

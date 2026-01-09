@@ -1,5 +1,5 @@
 export interface SalesRecord {
-  date: Date
+  date: string
   productName: string
   shopName: string
   sellingPrice: string
